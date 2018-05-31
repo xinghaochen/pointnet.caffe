@@ -1,4 +1,4 @@
-# Caffe re-implementation of [PointNet [Qi et al., CVPR 2017]](https://github.com/charlesq34/pointnet)
+# Caffe Re-implementation of [PointNet [Qi et al., CVPR 2017]](https://github.com/charlesq34/pointnet)
 
 This repository contains caffe implementation of PointNet, which is described in:
 
@@ -8,7 +8,8 @@ Charles R. Qi*, Hao Su*, Kaichun Mo, and Leonidas J. Guibas (*: equal contributi
 
 ## Dependencies
 
-- Caffe (with python layer, hdf5)
+- Caffe (with python layer, hdf5 support)
+- unzip
 
 
 ## Usage
@@ -41,6 +42,7 @@ sh test_aug.sh 2>&1 | tee logs/log_test_aug.txt
 ```
 
 ## Performance
+Classification results on ModelNet40:
 
 | Network | Original Paper | Ours w/o aug | Ours w/ aug|
 |---------- | ----------- |---------- | ----------- |
