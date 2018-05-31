@@ -1,5 +1,6 @@
 *.pyc
 data/*
+!data/get_data.sh
 snapshots/*
 .idea*
 *~
