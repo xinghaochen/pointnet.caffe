@@ -1,6 +1,6 @@
 *.pyc
 data/*
-!data/get_data.sh
+!data/download_data_modelnet40.sh
 snapshots/*
 .idea*
 *~
