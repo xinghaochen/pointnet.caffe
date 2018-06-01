@@ -1,0 +1,4 @@
+[submodule "caffe"]
+	path = caffe
+	url = https://github.com/simbaforrest/caffe.git
+	branch = master
