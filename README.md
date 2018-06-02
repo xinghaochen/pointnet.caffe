@@ -1,9 +1,8 @@
-# Caffe Re-implementation of [PointNet [Qi et al., CVPR 2017]](https://github.com/charlesq34/pointnet)
+# Caffe Re-implementation of [PointNet](https://github.com/charlesq34/pointnet) [Qi et al., CVPR 2017]
 
 This repository contains caffe implementation of PointNet, which is described in:
 
-PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation,\
-CVPR 2017, Oral,\
+[PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation](http://openaccess.thecvf.com/content_cvpr_2017/papers/Qi_PointNet_Deep_Learning_CVPR_2017_paper.pdf), CVPR 2017, Oral,\
 Charles R. Qi*, Hao Su*, Kaichun Mo, and Leonidas J. Guibas (*: equal contribution)
 
 ## Dependencies
@@ -40,19 +39,19 @@ cd data
 sh download_data_modelnet40.sh
 ```
 
-For basic classification netwoek without data augmentation:
+For basic classification network without data augmentation:
 ```
 sh train_pointnet_cls_basic.sh
 ```
-For basic classification netwoek with data augmentation:
+For basic classification network with data augmentation:
 ```
 sh train_pointnet_cls_basic_aug.sh
 ```
-For classification netwoek with input transform (3x3):
+For classification network with input transform (3x3):
 ```
 sh train_pointnet_cls_input_tnet.sh
 ```
-For classification netwoek with input transform (3x3) and feature transform (64x64):
+For classification network with input transform (3x3) and feature transform (64x64):
 ```
 sh train_pointnet_cls.sh
 ```
@@ -69,6 +68,7 @@ or
 ```
 sh test_pointnet_cls_input_tnet.sh
 ```
+or 
 ```
 sh test_pointnet_cls.sh
 ```
