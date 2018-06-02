@@ -1,4 +1,4 @@
-net: "models/pointnet_cls_iftnet.prototxt"
+net: "models/pointnet_cls.prototxt"
 test_iter: 78 # 2468 testing
 test_interval: 1000
 base_lr: 0.001
@@ -15,6 +15,6 @@ display: 100
 max_iter: 80000 # 9843 training, 250 epochs
 weight_decay: 0.0005
 snapshot: 40000
-snapshot_prefix: "snapshots/pointnet_cls_iftnet"
+snapshot_prefix: "snapshots/pointnet_cls"
 type: "Adam"
 solver_mode: GPU

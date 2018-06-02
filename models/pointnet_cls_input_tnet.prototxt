@@ -1,4 +1,4 @@
-name: "pointnet_cls_basic"
+name: "pointnet_cls_input_tnet"
 
 # ---------------------- data layer ---------------
 layer {
@@ -68,11 +68,11 @@ layer {
   name: "bn1_tnet1"
   type: "BatchNorm"
   bottom: "conv1_tnet1"
-  top: "bn1_tnet1"
+  top: "conv1_tnet1"
 }
 layer {
-    bottom: "bn1_tnet1"
-    top: "scale1_tnet1"
+    bottom: "conv1_tnet1"
+    top: "conv1_tnet1"
     name: "scale1_tnet1"
     type: "Scale"
     scale_param {
@@ -82,14 +82,14 @@ layer {
 layer {
   name: "relu1_tnet1"
   type: "ReLU"
-  bottom: "scale1_tnet1"
-  top: "scale1_tnet1"
+  bottom: "conv1_tnet1"
+  top: "conv1_tnet1"
 }
 
 layer {
   name: "conv2_tnet1"
   type: "Convolution"
-  bottom: "scale1_tnet1"
+  bottom: "conv1_tnet1"
   top: "conv2_tnet1"
   param {
     lr_mult: 1
@@ -116,11 +116,11 @@ layer {
   name: "bn2_tnet1"
   type: "BatchNorm"
   bottom: "conv2_tnet1"
-  top: "bn2_tnet1"
+  top: "conv2_tnet1"
 }
 layer {
-    bottom: "bn2_tnet1"
-    top: "scale2_tnet1"
+    bottom: "conv2_tnet1"
+    top: "conv2_tnet1"
     name: "scale2_tnet1"
     type: "Scale"
     scale_param {
@@ -130,14 +130,14 @@ layer {
 layer {
   name: "relu2_tnet1"
   type: "ReLU"
-  bottom: "scale2_tnet1"
-  top: "scale2_tnet1"
+  bottom: "conv2_tnet1"
+  top: "conv2_tnet1"
 }
 
 layer {
   name: "conv3_tnet1"
   type: "Convolution"
-  bottom: "scale2_tnet1"
+  bottom: "conv2_tnet1"
   top: "conv3_tnet1"
   param {
     lr_mult: 1
@@ -164,11 +164,11 @@ layer {
   name: "bn3_tnet1"
   type: "BatchNorm"
   bottom: "conv3_tnet1"
-  top: "bn3_tnet1"
+  top: "conv3_tnet1"
 }
 layer {
-    bottom: "bn3_tnet1"
-    top: "scale3_tnet1"
+    bottom: "conv3_tnet1"
+    top: "conv3_tnet1"
     name: "scale3_tnet1"
     type: "Scale"
     scale_param {
@@ -178,13 +178,13 @@ layer {
 layer {
   name: "relu3_tnet1"
   type: "ReLU"
-  bottom: "scale3_tnet1"
-  top: "scale3_tnet1"
+  bottom: "conv3_tnet1"
+  top: "conv3_tnet1"
 }
 layer {
   name: "pool_tnet1"
   type: "Pooling"
-  bottom: "scale3_tnet1"
+  bottom: "conv3_tnet1"
   top: "global_feat_tnet1"
   pooling_param {
     pool: MAX
@@ -223,11 +223,11 @@ layer {
   name: "bn6_tnet1"
   type: "BatchNorm"
   bottom: "fc1_tnet1"
-  top: "bn6_tnet1"
+  top: "fc1_tnet1"
 }
 layer {
-    bottom: "bn6_tnet1"
-    top: "scale6_tnet1"
+    bottom: "fc1_tnet1"
+    top: "fc1_tnet1"
     name: "scale6_tnet1"
     type: "Scale"
     scale_param {
@@ -237,14 +237,14 @@ layer {
 layer {
   name: "relu6_tnet1"
   type: "ReLU"
-  bottom: "scale6_tnet1"
-  top: "scale6_tnet1"
+  bottom: "fc1_tnet1"
+  top: "fc1_tnet1"
 }
 
 layer {
   name: "fc2_tnet1"
   type: "InnerProduct"
-  bottom: "scale6_tnet1"
+  bottom: "fc1_tnet1"
   top: "fc2_tnet1"
   param {
     lr_mult: 1
@@ -270,11 +270,11 @@ layer {
   name: "bn7_tnet1"
   type: "BatchNorm"
   bottom: "fc2_tnet1"
-  top: "bn7_tnet1"
+  top: "fc2_tnet1"
 }
 layer {
-    bottom: "bn7_tnet1"
-    top: "scale7_tnet1"
+    bottom: "fc2_tnet1"
+    top: "fc2_tnet1"
     name: "scale7_tnet1"
     type: "Scale"
     scale_param {
@@ -284,13 +284,13 @@ layer {
 layer {
   name: "relu7_tnet1"
   type: "ReLU"
-  bottom: "scale7_tnet1"
-  top: "scale7_tnet1"
+  bottom: "fc2_tnet1"
+  top: "fc2_tnet1"
 }
 layer {
   name: "fc3_tnet1"
   type: "InnerProduct"
-  bottom: "scale7_tnet1"
+  bottom: "fc2_tnet1"
   top: "fc3_tnet1"
   param {
     lr_mult: 1
@@ -353,7 +353,7 @@ layer {
   top: "data_transform1"  # 10x1x1 # BxNx3
 }
 layer {
-    name: "reshape"
+    name: "reshape_input_data"
     type: "Reshape"
     bottom: "data_transform1"
     top: "data_transform1_reshape"
@@ -397,11 +397,11 @@ layer {
   name: "bn1"
   type: "BatchNorm"
   bottom: "conv1"
-  top: "bn1"
+  top: "conv1"
 }
 layer {
-    bottom: "bn1"
-    top: "scale1"
+    bottom: "conv1"
+    top: "conv1"
     name: "scale1"
     type: "Scale"
     scale_param {
@@ -411,14 +411,14 @@ layer {
 layer {
   name: "relu1"
   type: "ReLU"
-  bottom: "scale1"
-  top: "scale1"
+  bottom: "conv1"
+  top: "conv1"
 }
 
 layer {
   name: "conv2"
   type: "Convolution"
-  bottom: "scale1"
+  bottom: "conv1"
   top: "conv2"
   param {
     lr_mult: 1
@@ -445,11 +445,11 @@ layer {
   name: "bn2"
   type: "BatchNorm"
   bottom: "conv2"
-  top: "bn2"
+  top: "conv2"
 }
 layer {
-    bottom: "bn2"
-    top: "scale2"
+    bottom: "conv2"
+    top: "conv2"
     name: "scale2"
     type: "Scale"
     scale_param {
@@ -459,14 +459,14 @@ layer {
 layer {
   name: "relu2"
   type: "ReLU"
-  bottom: "scale2"
-  top: "scale2"
+  bottom: "conv2"
+  top: "conv2"
 }
 
 layer {
   name: "conv3"
   type: "Convolution"
-  bottom: "scale2"
+  bottom: "conv2"
   top: "conv3"
   param {
     lr_mult: 1
@@ -493,11 +493,11 @@ layer {
   name: "bn3"
   type: "BatchNorm"
   bottom: "conv3"
-  top: "bn3"
+  top: "conv3"
 }
 layer {
-    bottom: "bn3"
-    top: "scale3"
+    bottom: "conv3"
+    top: "conv3"
     name: "scale3"
     type: "Scale"
     scale_param {
@@ -507,14 +507,14 @@ layer {
 layer {
   name: "relu3"
   type: "ReLU"
-  bottom: "scale3"
-  top: "scale3"
+  bottom: "conv3"
+  top: "conv3"
 }
 
 layer {
   name: "conv4"
   type: "Convolution"
-  bottom: "scale3"
+  bottom: "conv3"
   top: "conv4"
   param {
     lr_mult: 1
@@ -541,11 +541,11 @@ layer {
   name: "bn4"
   type: "BatchNorm"
   bottom: "conv4"
-  top: "bn4"
+  top: "conv4"
 }
 layer {
-    bottom: "bn4"
-    top: "scale4"
+    bottom: "conv4"
+    top: "conv4"
     name: "scale4"
     type: "Scale"
     scale_param {
@@ -555,14 +555,14 @@ layer {
 layer {
   name: "relu4"
   type: "ReLU"
-  bottom: "scale4"
-  top: "scale4"
+  bottom: "conv4"
+  top: "conv4"
 }
 
 layer {
   name: "conv5"
   type: "Convolution"
-  bottom: "scale4"
+  bottom: "conv4"
   top: "conv5"
   param {
     lr_mult: 1
@@ -589,11 +589,11 @@ layer {
   name: "bn5"
   type: "BatchNorm"
   bottom: "conv5"
-  top: "bn5"
+  top: "conv5"
 }
 layer {
-    bottom: "bn5"
-    top: "scale5"
+    bottom: "conv5"
+    top: "conv5"
     name: "scale5"
     type: "Scale"
     scale_param {
@@ -603,15 +603,15 @@ layer {
 layer {
   name: "relu5"
   type: "ReLU"
-  bottom: "scale5"
-  top: "scale5"
+  bottom: "conv5"
+  top: "conv5"
 }
 
 # -------------------- max pool ---------------------
 layer {
   name: "pool"
   type: "Pooling"
-  bottom: "scale5"
+  bottom: "conv5"
   top: "global_feat"
   pooling_param {
     pool: MAX
@@ -652,11 +652,11 @@ layer {
   name: "bn6"
   type: "BatchNorm"
   bottom: "fc1"
-  top: "bn6"
+  top: "fc1"
 }
 layer {
-    bottom: "bn6"
-    top: "scale6"
+    bottom: "fc1"
+    top: "fc1"
     name: "scale6"
     type: "Scale"
     scale_param {
@@ -666,14 +666,14 @@ layer {
 layer {
   name: "relu6"
   type: "ReLU"
-  bottom: "scale6"
-  top: "scale6"
+  bottom: "fc1"
+  top: "fc1"
 }
 
 layer {
   name: "fc2"
   type: "InnerProduct"
-  bottom: "scale6"
+  bottom: "fc1"
   top: "fc2"
   param {
     lr_mult: 1
@@ -699,11 +699,11 @@ layer {
   name: "bn7"
   type: "BatchNorm"
   bottom: "fc2"
-  top: "bn7"
+  top: "fc2"
 }
 layer {
-    bottom: "bn7"
-    top: "scale7"
+    bottom: "fc2"
+    top: "fc2"
     name: "scale7"
     type: "Scale"
     scale_param {
@@ -713,14 +713,14 @@ layer {
 layer {
   name: "relu7"
   type: "ReLU"
-  bottom: "scale7"
-  top: "scale7"
+  bottom: "fc2"
+  top: "fc2"
 }
 
 layer {
   name: "drop1"
   type: "Dropout"
-  bottom: "scale7"
+  bottom: "fc2"
   top: "drop1"
   dropout_param {
     dropout_ratio: 0.3
