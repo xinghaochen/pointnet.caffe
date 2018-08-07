@@ -1,1 +1,1 @@
-caffe/build/tools/caffe test -model=models/pointnet_cls_input_tnet.prototxt -weights=snapshots/pointnet_cls_input_tnet_iter_80000.caffemodel -gpu 0 2>&1 | tee logs/log_test_pointnet_cls_input_tnet.txt
+caffe/build/tools/caffe test -model=models/pointnet_cls_input_tnet.prototxt -weights=snapshots/pointnet_cls_input_tnet_iter_80000.caffemodel -iterations 77  -gpu 0 2>&1 | tee logs/log_test_pointnet_cls_input_tnet.txt

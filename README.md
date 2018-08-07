@@ -3,7 +3,7 @@
 This repository contains caffe implementation of PointNet, which is described in:
 
 [PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation](http://openaccess.thecvf.com/content_cvpr_2017/papers/Qi_PointNet_Deep_Learning_CVPR_2017_paper.pdf), CVPR 2017, Oral,\
-Charles R. Qi*, Hao Su*, Kaichun Mo, and Leonidas J. Guibas (*: equal contribution)
+Charles R. Qi*, Hao Su*, Kaichun Mo, and Leonidas J. Guibas (* equal contribution)
 
 ## Dependencies
 
@@ -68,7 +68,7 @@ or
 ```
 sh test_pointnet_cls_input_tnet.sh
 ```
-or 
+or
 ```
 sh test_pointnet_cls.sh
 ```
@@ -78,9 +78,9 @@ Classification results on ModelNet40:
 
 | Network | Original Paper | Ours w/o aug | Ours w/ aug| model name |
 |---------- | ----------- |---------- | ----------- | ----------- |
-| PointNet basic cls | 87.1% | 88.25% | 85.255| pointnet_cls_basic |
-| PointNet w/ input T-Net | 87.9% | 89.19% | -| pointnet_cls_input_tnet|
-| PointNet w/ input & feat T-Net | 89.2% | 88.81% | -| pointnet_cls|
+| PointNet basic cls | 87.1% | 88.07% | 85.39| pointnet_cls_basic |
+| PointNet w/ input T-Net | 87.9% | 89.53% | -| pointnet_cls_input_tnet|
+| PointNet w/ input & feat T-Net | 89.2% | 89.41% | -| pointnet_cls|
 
 ## TODOs
 
